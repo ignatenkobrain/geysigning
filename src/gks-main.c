@@ -96,9 +96,9 @@ gks_startup_cb (GApplication *application,
   _cleanup_error_free_ GError *error = NULL;
 
   priv->builder = gtk_builder_new ();
-  retval = gtk_builder_add_from_file (priv->builder,
-                                      "/home/brain/git/GNOME/geysigning/data/main.ui",
-                                      &error);
+  retval = gtk_builder_add_from_resource (priv->builder,
+                                          "/org/gnome/KeySign/gks-main.ui",
+                                          &error);
   if (retval == 0) {
     g_warning ("failed to load ui: %s", error->message);
     return;
